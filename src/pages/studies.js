@@ -19,6 +19,7 @@ const StudiesPage = ({ data }) => (
           <React.Fragment key={articles.id}>
             <div>
               <h2>{articles.title}</h2>
+              <p>{articles.feature}</p>
               {/* <p>{articles.feature}</p> */}
               {/* <img
                 src={articles.pict.url}
@@ -56,6 +57,7 @@ export const query = graphql`
             name
           }
           body
+          feature
         }
       }
     }
