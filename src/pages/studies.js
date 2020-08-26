@@ -1,5 +1,5 @@
 import React from "react";
-import { graphql } from "gatsby";
+import { graphql, Link } from "gatsby";
 
 import Layout from "../components/layout";
 import SEO from "../components/seo";
@@ -18,7 +18,9 @@ const StudiesPage = ({ data }) => (
         return (
           <React.Fragment key={articles.id}>
             <div>
-              <h2>{articles.title}</h2>
+              <Link to={`/studies/${articles.id}`}>
+                  <h1>{articles.title}</h1>
+              </Link>
               <p>{articles.feature}</p>
               {/* <p>{articles.feature}</p> */}
               {/* <img
