@@ -4,19 +4,23 @@ import { graphql } from "gatsby"
 import Layout from "../components/layout"
 
 const ArticlePost = props => {
- const post = props.data.microcmsArticles // ㊟allMicrocmsArticleでない
+ const post = props.data.microcmsArticles // allMicrocmsArticleでない
  return (
    <Layout>
      <div>
        <h1>{post.title}</h1>
-       {/* <h3>原文：{post.title_origin}</h3> */}
        <br />
-       {/* <img
-         src={post.pict.url}
-         width={160}
-         height={110}
-         alt="pict画像"
-       /> */}
+       {console.log(post)}
+       {(post.picture.url) ?
+         <img
+            src={post.picture.url}
+            width={160}
+            height={110}
+            alt="picture画像"
+         />
+         :
+         <></>
+       }
        <p
          dangerouslySetInnerHTML={{
            __html: `${post.body}`,
@@ -34,6 +38,9 @@ export const query = graphql`
    microcmsArticles(id: { eq: $id }) {
      title
      body
+     picture {
+      url
+     }
    }
  }
 `

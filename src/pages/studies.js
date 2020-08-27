@@ -14,7 +14,7 @@ const StudiesPage = ({ data }) => (
       console.log("◆categoryは　" + category);
 
       if (category == "studies") {
-        //カテゴリーが患者さん用の場合表示
+        //カテゴリーが勉強用の場合表示
         return (
           <React.Fragment key={articles.id}>
             <div>
@@ -22,13 +22,16 @@ const StudiesPage = ({ data }) => (
                   <h1>{articles.title}</h1>
               </Link>
               <p>{articles.feature}</p>
-              {/* <p>{articles.feature}</p> */}
-              {/* <img
-                src={articles.pict.url}
-                width={110}
-                height={110}
-                alt="pict画像"
-              /> */}
+              {(articles.picture) != null ?
+                <img
+                  src={articles.picture.url}
+                  width={110}
+                  height={110}
+                  alt="picture画像"
+                />
+                :
+                <></>
+              }
             </div>
             <div>
               {articles.category.map((category) => (
@@ -57,6 +60,9 @@ export const query = graphql`
           category {
             id
             name
+          }
+          picture {
+            url
           }
           body
           feature

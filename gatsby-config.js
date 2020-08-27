@@ -35,7 +35,6 @@ module.exports = {
           apiKey: process.env.GATSBY_MICRO_CMS_API_KEY,
           serviceId: "rui-blog",
           endpoint: "articles",
-          readAll: true,
         },
       },
       // this (optional) plugin enables Progressive Web App + Offline functionality
